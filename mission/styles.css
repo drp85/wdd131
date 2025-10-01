@@ -6,7 +6,7 @@ body {
 
 .content-box {
     max-width: 600px;
-    margin: 20px auto; /* Adds space on top/bottom and centers the box */
+    margin: 20px auto;
     padding: 1rem;
     border: 1px solid #414141;
 }
@@ -35,7 +35,7 @@ main ol {
 }
 
 ol {
-    padding-left: 50px; /* Indents the list items */
+    padding-left: 50px;
 }
 
 footer img {
