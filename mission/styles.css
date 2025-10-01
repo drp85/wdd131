@@ -1,0 +1,43 @@
+body {
+    font-family: "Times New Roman", Times, serif;
+    font-size: 20px;
+    line-height: 1.5;
+}
+
+.content-box {
+    max-width: 600px;
+    margin: 20px auto; /* Adds space on top/bottom and centers the box */
+    padding: 1rem;
+    border: 1px solid #414141;
+}
+
+header, main, footer {
+    text-align: center;
+}
+
+h1 {
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    margin-bottom: 0;
+}
+
+h2 {
+    color: #006EB6;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-top: 0;
+    font-size: 15px;
+}
+
+main p,
+main ol {
+    text-align: left;
+}
+
+ol {
+    padding-left: 50px; /* Indents the list items */
+}
+
+footer img {
+    width: 150px;
+}
