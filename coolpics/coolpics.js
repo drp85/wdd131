@@ -1,0 +1,7 @@
+// const menuButton = document.getElementById('menu-button');
+// const navLinks = document.getElementById('nav-links');
+
+// menuButton.addEventListener('click', () => {
+//     navLinks.classList.toggle('open');
+//     menuButton.classList.toggle('open');
+// });
