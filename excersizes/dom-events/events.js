@@ -1,6 +1,17 @@
 // events.js
 let tasks = [];
 
+function taskTemplate(task) {
+  return `
+    <li ${task.completed ? 'class="strike"' : ""}>
+      <p>${task.detail}</p>
+      <div>
+        <span data-action="delete">❎</span>
+        <span data-action="complete">✅</span>
+      </div>
+    </li>`
+}
+
 function renderTasks(tasks) {
   // get the list element from the DOM
   // loop through the tasks array. transform (map) each task object into the appropriate HTML to represent a to-do.
@@ -8,8 +19,11 @@ function renderTasks(tasks) {
 
 function newTask() {
   // get the value entered into the #todo input
+  const task = document.querySelector("#todo").value;
   // add it to our arrays tasks
+  tasks.push({ detail: task, completed: false });
   // render out the list
+  renderTasks(tasks);
 }
 
 function removeTask(taskElement) {
@@ -43,10 +57,27 @@ function manageTasks(event) {
   console.log(event.target);
   console.log(event.currentTarget);
   // event.target will point to the actual icon clicked on. We need to get the parent li to work with however. HINT: Remember element.closest()? Look it up if you don't
-
+const taskSelected = event.target.closest("li");
   // because we added 'data-action="delete"' to each icon in a task we can access a dataset property on our target (e.target.dataset.action)
   // use that in a couple of if statements to decide whether to run removeTask or completeTask
+  if (event.target.dataset.action === "delete") {
+    removeTask(taskSelected);
+  }
+  if (event.target.dataset.action === "complete") {
+    completeTask(taskSelected);
+  }
+
 }
 
 // Add your event listeners here
 // We need to attach listeners to the submit button and the list. Listen for a click, call the 'newTask' function on submit and call the 'manageTasks' function if either of the icons are clicked in the list of tasks.
+function renderTasks(tasks) {
+  const list = document.querySelector('#todoList');
+  if (!list) return;
+  list.innerHTML = tasks.map(taskTemplate).join('');
+}
+
+document.querySelector("#submitTask").addEventListener("click", newTask);
+document.querySelector("#todoList").addEventListener("click", manageTasks);
+
+renderTasks(tasks);
