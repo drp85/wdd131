@@ -1,28 +1,44 @@
-const menuButton = document.querySelector('.menu-button');
-const navLinks = document.getElementById('nav-links');
+const menuButton = document.querySelector(".menu-button");
 
+function toggleMenu() {
+  const menu = document.querySelector('.menu');
+  if (!menu) return;
+  menu.classList.toggle('hide');
+}
 
-if (menuButton && navLinks) {
-	if (window.innerWidth < 700) {
-		navLinks.classList.add('hide');
-		menuButton.setAttribute('false');
-	} else {
-		navLinks.classList.remove('hide');
-		menuButton.setAttribute('true');
-	}
+if (menuButton) {
+  menuButton.addEventListener('click', toggleMenu);
+}
 
-	menuButton.addEventListener('click', () => {
-		const nowHidden = navLinks.classList.toggle('hide');
-		menuButton.setAttribute(String(!nowHidden));
-	});
+function handleResize() {
+  const menu = document.querySelector('.menu');
+  if (window.innerWidth > 700 && menu) {
+    menu.classList.remove('hide');
+  }
+}
 
-	window.addEventListener('resize', () => {
-		if (window.innerWidth >= 700) {
-			navLinks.classList.remove('hide');
-			menuButton.setAttribute('true');
-		} else {
-			navLinks.classList.add('hide');
-			menuButton.setAttribute('false');
-		}
-	});
+window.addEventListener('resize', handleResize);
+handleResize();
+
+function viewHandler(event) {
+  if (event.target.tagName === 'IMG') {
+    const clickedImage = event.target;
+    const fullSrc = clickedImage.src.replace('-sm', '-full');
+
+    const dialog = document.createElement('dialog');
+    dialog.innerHTML = `<button class="close-viewer">X</button><img src="${fullSrc}" alt="${clickedImage.alt}">`;
+
+    dialog.querySelector('.close-viewer').addEventListener('click', () => {
+      dialog.close();
+      dialog.remove();
+    });
+
+    document.body.appendChild(dialog);
+    dialog.showModal();
+  }
+}
+
+const gallery = document.querySelector('.gallery');
+if (gallery) {
+  gallery.addEventListener('click', viewHandler);
 }

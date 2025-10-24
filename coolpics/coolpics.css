@@ -1,13 +1,13 @@
- @import url("https://fonts.googleapis.com/css2?family=family=Mooli&display=swap");
- :root {
- --primary-color: #52489c;
- --secondary-color: #59c3c3;
- --accent-color: #f45b69;
- --text-dark: #333;
- --text-light: #ebebeb;
- --primary-font: Arial, Helvetica,sans-serif;
- --secondary-font: Mooli, san-serif;
- }
+@import url("https://fonts.googleapis.com/css2?family=Mooli&display=swap");
+:root {
+  --primary-color: #52489c;
+  --secondary-color: #59c3c3;
+  --accent-color: #f45b69;
+  --text-dark: #333;
+  --text-light: #ebebeb;
+  --primary-font: Arial, Helvetica, sans-serif;
+  --secondary-font: Mooli, san-serif;
+}
 
 body {
   margin: 0;
@@ -27,31 +27,11 @@ header {
   padding: 0.75rem 0;
 }
 
-/* Navigation styling and responsive behavior */
 nav {
   width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
-}
-
-/* utility to hide elements */
-.hide { display: none !important; }
-
-#nav-links {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-  display: none; /* hidden by default on small screens */
-  gap: 1rem;
-}
-
-#nav-links li { display: inline-block; margin: 0 0.5rem; }
-
-/* show nav links on wider screens and hide the menu button */
-@media screen and (min-width: 700px) {
-  #nav-links { display: flex; }
-  #menu-button { display: none; }
 }
 
 main {
@@ -62,31 +42,6 @@ main {
   max-width: 1100px;
   margin: 0 auto;
 }
-
-.gallery {
-  display: grid;
-  grid-template-columns: repeat(1, 1fr);
-  gap: 2rem;
-  align-items: start;
-}
-
-@media screen and (min-width: 700px) {
-  .gallery {
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
-
-@media screen and (min-width: 1000px) {
-  .gallery {
-    grid-template-columns: repeat(3, 1fr);
-  }
-}
-
-a:link, 
-a:visited {
-  color: var(--accent-color);
-}
-
 .gallery figure {
   margin: 0;
   position: relative;
@@ -115,28 +70,13 @@ a:visited {
   display: block;
 }
 
-#menu-button {
-  appearance: none;
-  -webkit-appearance: none;
-  background: transparent;
-  border: none;
-  color: var(--text-light);
-  font-size: 1rem;
-  padding: 0;
-  cursor: pointer;
-}
-
-header h1 {
-  color: var(--text-light);
-  margin: 0;
-}
-
 @media screen and (min-width: 1400px) {
   main {
     padding-left: 2.5rem;
     padding-right: 2.5rem;
   }
 }
+
 main h2 {
   text-align: center;
   margin: 0;
@@ -148,4 +88,92 @@ footer {
   color: var(--text-light);
   text-align: center;
   padding: 0.75rem 0;
+}
+ 
+.hide { display: none !important; }
+ 
+#nav-links, .menu {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  gap: 1rem;
+  flex-direction: column;
+}
+
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  gap: 2rem;
+  align-items: start;
+}
+
+@media screen and (min-width: 700px) {
+  .gallery {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media screen and (min-width: 1000px) {
+  .gallery {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+a:link,
+a:visited {
+  color: var(--accent-color);
+}
+
+#menu-button, .menu-button {
+  appearance: none;
+  -webkit-appearance: none;
+  background: transparent;
+  border: none;
+  color: var(--text-light);
+  font-size: 1rem;
+  padding: 0;
+  cursor: pointer;
+  display: block;
+}
+
+@media screen and (min-width: 700px) {
+  #nav-links, .menu { display: flex; flex-direction: row; }
+  #menu-button, .menu-button { display: none; }
+}
+
+header h1 {
+  color: var(--text-light);
+  margin: 0;
+}
+
+#nav-links li, .menu li { display: inline-block; margin: 0 0.5rem; }
+
+dialog {
+  width: 100%;
+  height: 100%;
+  border: none;
+  padding: 0;
+  margin: 0;
+  background-color: transparent;
+  max-width: 100%;
+  max-height: 100%;
+  z-index: 10;
+}
+
+dialog::backdrop {
+  background-color: rgba(0, 0, 0, 0.6);
+}
+
+dialog img {
+  width: 90%;
+  max-height: 100%;
+  margin: 20vh auto;
+  display: block;
+}
+
+.close-viewer {
+  position: absolute;
+  top: 20vh;
+  right: 5%;
 }
