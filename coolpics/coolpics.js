@@ -20,25 +20,39 @@ function handleResize() {
 window.addEventListener('resize', handleResize);
 handleResize();
 
-function viewHandler(event) {
-  if (event.target.tagName === 'IMG') {
-    const clickedImage = event.target;
-    const fullSrc = clickedImage.src.replace('-sm', '-full');
-
-    const dialog = document.createElement('dialog');
-    dialog.innerHTML = `<button class="close-viewer">X</button><img src="${fullSrc}" alt="${clickedImage.alt}">`;
-
-    dialog.querySelector('.close-viewer').addEventListener('click', () => {
-      dialog.close();
-      dialog.remove();
-    });
-
-    document.body.appendChild(dialog);
-    dialog.showModal();
-  }
-}
+const modal = document.createElement('dialog');
+modal.innerHTML = `
+    <button class="close-viewer">X</button>
+    <img src="" alt="">
+`;
+document.body.appendChild(modal);
 
 const gallery = document.querySelector('.gallery');
-if (gallery) {
-  gallery.addEventListener('click', viewHandler);
+const modalImage = modal.querySelector('img');
+const closeButton = modal.querySelector('.close-viewer');
+
+function showImageModal(event) {
+  const clickedImage = event.target.closest('img');
+  if (!clickedImage) {
+    return;
+  }
+
+  const smallSrc = clickedImage.src;
+  const altText = clickedImage.alt;
+  const fullSrc = smallSrc.replace('-sm.jpeg', '-full.jpeg');
+
+  modalImage.src = fullSrc;
+  modalImage.alt = altText;
+
+  modal.showModal();
 }
+
+gallery.addEventListener('click', showImageModal);
+
+closeButton.addEventListener('click', () => modal.close());
+
+modal.addEventListener('click', (event) => {
+  if (event.target === modal) {
+    modal.close();
+  }
+});
