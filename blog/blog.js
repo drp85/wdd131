@@ -24,4 +24,32 @@ const articles = [
 		genre: 'Fantasy',
 		stars: '⭐⭐⭐⭐'
 	}
-]
+];
+
+// function createArticleCard(article) {
+//     return `
+//         <article class="article-card" id="article-${article.id}">
+//             <div class="article-content">
+//                 <p class="article-date">${article.date}</p>
+//                 <p>${article.description}</p>
+//                 <p><strong>Age Group:</strong> ${article.ages}</p>
+//                 <p><strong>Genre:</strong> ${article.genre}</p>
+//                 <p><strong>Rating:</strong> ${article.stars}</p>
+//             </div>
+//             <div class="article-image-container">
+//                 <img src="${article.imgSrc}" alt="${article.imgAlt}">
+//                 <h3>${article.title}</h3>
+//             </div>
+//         </article>
+//     `;
+// }
+
+// function displayArticles(articlesToDisplay) {
+//     const container = document.getElementById('articles-container');
+//     container.innerHTML = articlesToDisplay.map(createArticleCard).join('');
+// }
+
+// // Display all articles when the page loads
+// document.addEventListener('DOMContentLoaded', () => {
+//     displayArticles(articles);
+// });

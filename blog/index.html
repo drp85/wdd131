@@ -14,6 +14,9 @@
         <div class="header-content">
             <img src="images/placeholder.png" alt="placeholder logo" class="header-logo">
             <h1>BookSite</h1>
+            <div class="skiptocontent">
+                <a href="#maincontent">skip to main content</a>
+            </div>
             <nav class="header-nav">
                 <ul>
                     <li><a href="#">Discover</a></li>
@@ -23,10 +26,54 @@
             </nav>
         </div>
     </header>
-    <main>
-        <div class="content-wrapper">
-            <input type="search" id="search-box" placeholder="Search books:">
-            <div id="articles-container"></div>
+    <main id="maincontent">
+        <input type="search" id="search-box" placeholder="Search books:">
+        <div class="content-grid">
+            <aside class="sidebar">
+                <h3>Filter by:</h3>
+                <div class="filter-group">
+                    <label for="age-filter">Age:</label>
+                    <select id="age-filter" name="age">
+                        <option value="all">All Ages</option>
+                    </select>
+                </div>
+                <div class="filter-group">
+                    <label for="genre-filter">Genre:</label>
+                    <select id="genre-filter" name="genre">
+                        <option value="all">All Genres</option>
+                    </select>
+                </div>
+            </aside>
+            <div class="main-content">
+                <div id="articles-container">
+                    <article class="article-card" id="article-${article.id}">
+            <div class="article-content">
+                <p class="article-date">July 5, 2022</p>
+                <p>Septimus Heap Book One: Magyk</p>
+                <p><strong>Age Group:</strong> 10-14</p>
+                <p><strong>Genre:</strong> Fantasy</p>
+                <p><strong>Rating:</strong> ****</p>
+            </div>
+            <div class="article-image-container">
+                <img src="https://upload.wikimedia.org/wikipedia/en/5/5f/Magkycover2.jpg" alt="Cover of the book Magyk by Angie Sage">
+                <h3>Septimus Heap Book One: Magyk</h3>
+            </div>
+        </article>
+        <article class="article-card" id="article-${article.id}">
+            <div class="article-content">
+                <p class="article-date">December 12, 2022</p>
+                <p>Magnus Chase Book One: Sword of Summer</p>
+                <p><strong>Age Group:</strong> 12-16</p>
+                <p><strong>Genre:</strong> Fantasy</p>
+                <p><strong>Rating:</strong> ⭐⭐⭐⭐</p>
+            </div>
+            <div class="article-image-container">
+                <img src="https://books.google.com/books/content/images/frontcover/xWuyBAAAQBAJ?fife=w300" alt="Cover of the book Sword of Summer by Rick Riordan">
+                <h3>Magnus Chase Book One: Sword of Summer</h3>
+            </div>
+        </article>
+                </div>
+            </div>
         </div>
     </main>
     <footer><div class="footer-content">BookSite &copy; 2025 Dallin Pratt</div></footer>
