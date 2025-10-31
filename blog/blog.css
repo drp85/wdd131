@@ -1,0 +1,145 @@
+
+/* Basic Body and Typography */
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    margin: 0;
+    background-color: #f4f4f4;
+    color: #333;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+h1, h2 {
+    text-align: center;
+}
+
+header {
+    background-color: #eaf6ff;
+    padding: 1rem 20px;
+    color: #003366;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.header-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.header-content h1 {
+    margin: 0;
+    font-size: 2.5rem;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.header-logo {
+    height: 60px;
+    width: 60px;
+}
+
+.header-nav ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    display: flex;
+    gap: 20px;
+}
+
+.header-nav a {
+    text-decoration: none;
+    color: #003366;
+    font-weight: bold;
+}
+
+.filter-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    margin-top: 1rem;
+}
+
+#genre-filter {
+    padding: 8px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+
+main {
+    flex-grow: 1;
+    padding: 20px;
+    margin: 0 auto;
+}
+
+#search-box {
+    margin-bottom: 2rem;
+    width: 100%;
+    padding: 12px;
+    font-size: 1rem;
+    background-color: #f0f0f0;
+    border: 1px solid black;
+    border-radius: 8px; 
+    box-sizing: border-box;
+}
+
+.content-wrapper {
+    max-width: 800px; 
+    margin: 0 auto;
+}
+
+#articles-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+}
+
+.article-card {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    display: flex;
+    flex-direction: column;
+}
+
+.article-card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+.article-content {
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+}
+
+.article-content h3 {
+    margin-top: 0;
+}
+
+.article-date {
+    font-size: 0.8em;
+    color: #777;
+    margin-bottom: 10px;
+}
+
+footer {
+    background-color: #333;
+    color: #f8f8f8;
+    padding: 1rem 20px;
+    text-align: center;
+}
+
+.footer-content {
+    max-width: 1200px;
+    margin: 0 auto;
+}
