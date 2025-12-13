@@ -1,28 +1,185 @@
 @import url("https://fonts.googleapis.com/css?family=IM+Fell+French+Canon+SC|Lato");
 
 :root {
-  /* change the values below to your colors from your palette */
   --primary-color: #396e94;
   --secondary-color: #e7c24f;
-  --accent1-color: #a42212;
-  --accent2-color: white;
-
-  /* change the values below to your chosen font(s) */
+  --accent1-color: white;
+  --accent2-color: #e94444;
   --heading-font: "IM Fell French Canon SC";
   --paragraph-font: Lato, Helvetica, sans-serif;
-
-  /* these colors below should be chosen from among your palette colors above */
-  --headline-color-on-white: var(
-    --primary-color
-  ); /* headlines on a white background */
-  --headline-color-on-color: white; /* headlines on a colored background */
-  --paragraph-color-on-white: var(
-    --primary-color
-  ); /* paragraph text on a white background */
-  --paragraph-color-on-color: white; /* paragraph text on a colored background */
+  --headline-color-on-white: var(--primary-color);
+  --headline-color-on-color: white;
+  --paragraph-color-on-white: var(--primary-color);
+  --paragraph-color-on-color: white;
   --paragraph-background-color: var(--primary-color);
   --nav-link-color: var(--primary-color);
   --nav-background-color: var(--secondary-color);
   --nav-hover-link-color: white;
   --nav-hover-background-color: var(--primary-color);
+}
+
+#trivia-container {
+  max-width: 600px;
+  margin: 2rem auto;
+  padding: 2rem;
+  background-color: var(--primary-color);
+  color: white;
+  /* Swapped text color */
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+#question-text {
+  color: white;
+  /* Swapped text color */
+  margin-bottom: 20px;
+}
+
+#progress-text {
+  color: #eee;
+  font-size: 0.9rem;
+  margin-bottom: 10px;
+}
+
+#options-container {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.option-btn {
+  padding: 10px 20px;
+  border: 2px solid white;
+  /* Default border white */
+  background-color: white;
+  color: var(--primary-color);
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+}
+
+.option-btn:hover {
+  background-color: var(--secondary-color);
+  /* Hover is Secondary (Yellow) */
+  color: #333;
+  border-color: var(--secondary-color);
+  color: #333;
+}
+
+.option-btn.selected {
+  background-color: var(--secondary-color);
+  border-color: var(--secondary-color);
+  color: #333;
+}
+
+#next-btn,
+#submit-btn {
+  padding: 12px 24px;
+  background-color: var(--primary-color);
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1.1rem;
+  font-weight: bold;
+}
+
+#next-btn:hover,
+#submit-btn:hover {
+  background-color: var(--secondary-color);
+}
+
+#results-container {
+  margin: 2rem auto;
+  text-align: center;
+  font-size: 1.5rem;
+  color: var(--primary-color);
+  /* Kept consistent or should be white if inside container? It's outside usually */
+}
+
+/* If results are outside container, keep primary color. If inside, white. HTML shows outside. */
+
+/* Start & Restart Buttons */
+.pale-red-btn {
+  background-color: #e77474;
+  /* Pale Red */
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  text-decoration: none;
+  display: inline-block;
+  transition: background-color 0.3s;
+  font-family: var(--heading-font);
+}
+
+.pale-red-btn:hover {
+  background-color: var(--accent2-color);
+}
+
+.pale-red-btn.big {
+  font-size: 3rem;
+  padding: 0;
+  width: 50vw;
+  height: 50vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.pale-red-btn.small {
+  padding: 10px 20px;
+  font-size: 1rem;
+}
+
+
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  margin: 0;
+}
+
+header {
+  background-color: white;
+  padding: 1rem;
+  text-align: center;
+  border-bottom: 1px solid #e6e6e6;
+}
+
+header img {
+  height: 80px;
+  /* Adjust size as needed */
+  width: auto;
+}
+
+main {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  /* For trivia page structure */
+  align-items: center;
+  /* helps center content generally */
+}
+
+footer {
+  background-color: var(--primary-color);
+  color: white;
+  text-align: center;
+  padding: 1rem;
+  margin-top: auto;
+  /* Ensures footer stays at bottom if content is short but main grows */
+}
+
+#start-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-grow: 1;
+  /* Take up available space */
+  width: 100%;
+  background-color: var(--accent1-color);
 }
