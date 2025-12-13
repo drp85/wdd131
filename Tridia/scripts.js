@@ -3,9 +3,19 @@ let currentQuestionIndex = 0;
 let score = 0;
 const totalQuestions = triviaQuestions.length;
 
+
 function startTrivia() {
+    randomizeOrder(triviaQuestions);
     displayQuestion();
     document.getElementById('next-btn').addEventListener('click', submitAnswer);
+    document.getElementById('end-btn').addEventListener('click', () => endScreen(true));
+}
+
+function randomizeOrder(array) {
+    for (let i = array.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [array[i], array[j]] = [array[j], array[i]];
+    }
 }
 
 function displayQuestion() {
@@ -15,22 +25,30 @@ function displayQuestion() {
     const currentQ = triviaQuestions[currentQuestionIndex];
     questionTextElement.textContent = currentQ.question;
     updateProgress();
-    //reset and create buttons for answers
+    //reset and map buttons
     optionsContainer.innerHTML = '';
-    currentQ.options.forEach((option, index) => {
+    const optionButtons = currentQ.options.map(option => {
         const button = document.createElement('button');
         button.classList.add('option-btn');
         button.textContent = option;
         button.value = option;
         button.addEventListener('click', () => selectAnswer(option, button));
-        optionsContainer.appendChild(button);
+        return button;
     });
+
+    optionButtons.forEach(btn => optionsContainer.appendChild(btn));
+}
+
+function updateProgress() {
+    const progressText = document.getElementById('progress-text');
+    if (progressText) {
+        progressText.textContent = `Question ${currentQuestionIndex + 1} of ${totalQuestions}`;
+    }
 }
 
 let selectedAnswer = null;
-
 function selectAnswer(option, clickedButton) {
-    //Reset selection then select clicked button
+    //reset selection then select clicked button
     document.querySelectorAll('.option-btn').forEach(btn => {
         btn.classList.remove('selected');
     });
@@ -54,22 +72,16 @@ function submitAnswer() {
     if (currentQuestionIndex < totalQuestions) {
         displayQuestion();
     } else {
-        endScreen();
+        endScreen(false);
     }
 }
 
-function endScreen() {
-    //Hide trivia container, show results container
+function endScreen(early = false) {
+    //hide trivia container, show results container
     document.getElementById('trivia-container').style.display = 'none';
     document.getElementById('results-container').style.display = 'block';
-    document.getElementById('score-display').textContent = `${score}/${totalQuestions}`;
-}
-
-function updateProgress() {
-    const progressText = document.getElementById('progress-text');
-    if (progressText) {
-        progressText.textContent = `Question ${currentQuestionIndex + 1} of ${totalQuestions}`;
-    }
+    let displayTotal = currentQuestionIndex;
+    document.getElementById('score-display').textContent = `${score}/${displayTotal}`;
 }
 
 startTrivia();
