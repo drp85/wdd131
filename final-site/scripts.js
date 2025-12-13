@@ -1,3 +1,4 @@
+//this list of trivia questions could be replaced with different types of files, api, or an input from the user
 const triviaQuestions = [
     {
         question: "What is the capital of France?",
