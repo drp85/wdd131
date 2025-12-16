@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trivia Game</title>
+    <link rel="stylesheet" href="style.css">
+    <meta name="description" content="WDD131 Final Project">
+    <meta name="author" content="Dallin Pratt">
+    <link rel="icon" type="image/png" href="images/favicon.ico">
+    <script src="scripts.js" type="module" defer></script>
+</head>
+
+<body>
+    <header>
+        <a href="index.html"><img src="images/t_logo.png" alt="Logo"></a>
+    </header>
+    <main>
+        <div id="trivia-container">
+            <h2 id="question-text">Question goes here...</h2>
+            <p id="progress-text">Question 1 of 10</p>
+            <div id="options-container">
+
+            </div>
+            <button id="next-btn">Submit & Next</button>
+            <button id="end-btn">Score Now</button>
+        </div>
+        <div id="results-container" style="display: none;">
+            <p>Score: <span id="score-display">0/0</span></p>
+            <p>Try again for a better score, or come back "tomorrow" for more Tridia!</p>
+            <img src="images/AICAKE.png" width="50%" alt="Celebratory Cake">
+        </div>
+        <div id="restart-container">
+            <a href="index.html" class="pale-red-btn small">Restart</a>
+        </div>
+    </main>
+    <footer>
+        &copy; 2025 Tridia by Dallin Pratt - WDD131
+    </footer>
+</body>
+
+</html>

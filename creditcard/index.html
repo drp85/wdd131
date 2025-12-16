@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Credit Card Form</title>
+    <link rel="stylesheet" href="styles.css">
+    <meta name="description" content="A simple credit card form example.">
+    <meta name="author" content="Dallin Pratt">
+    <link rel="icon" type="image/png" href="favicon.png">
+</head>
+<body>
+    <div class="container">
+        <div class="card-container">
+            <div class="card card-back">
+                <div class="input-group">
+                    <label class="input-label">CVV</label>
+                    <input type="text" class="cvv-value" placeholder="012" maxlength="3" required>
+                </div>
+            </div>
+
+            <div class="card card-front">
+                <div class="input-group">
+                    <label class="input-label">Payment Total</label>
+                    <input type="text" class="payment-total" placeholder="$99" required>
+                </div>
+                
+                <div class="input-group">
+                    <label class="input-label">Card Number</label>
+                    <input type="text" class="card-number" placeholder="1234 5678 9101 1112" maxlength="19" required pattern="[0-9\s]{15,19}">
+                </div>
+                
+                <div style="display: flex; gap: 15px; align-items: flex-start;">
+                    <div class="input-group" style="flex: 1;">
+                        <label class="input-label">Cardholder Name</label>
+                        <input type="text" class="cardholder-name" placeholder="Dallin Pratt" maxlength="25" required>
+                    </div>
+                    
+                    <div class="input-group" style="width: 32%;">
+                        <label class="input-label">Expiration</label>
+                        <div class="expiry-section">
+                            <div class="expiry-box">
+                                <input type="text" class="expiry-value" placeholder="MM" maxlength="2" required pattern="(0[1-9]|1[0-2])">
+                            </div>
+                            <div class="expiry-box">
+                                <input type="text" class="expiry-value" placeholder="YY" maxlength="2" required pattern="[0-9]{2}">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
