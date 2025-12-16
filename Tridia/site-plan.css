@@ -2,32 +2,25 @@
 Any spaces in your font name should be replaced with a +. 
 Fonts are separated by a | */
 @import url("https://fonts.googleapis.com/css?family=IM+Fell+French+Canon+SC|Lato");
+@import url('https://fonts.googleapis.com/css2?family=Geo:ital@0;1&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
 
 :root {
-  /* change the values below to your colors from your palette */
   --primary-color: #396e94;
   --secondary-color: #e7c24f;
-  --accent1-color: #a42212;
-  --accent2-color: white;
-
-  /* change the values below to your chosen font(s) */
-  --heading-font: "IM Fell French Canon SC";
-  --paragraph-font: Lato, Helvetica, sans-serif;
-
-  /* these colors below should be chosen from among your palette colors above */
-  --headline-color-on-white: var(
-    --primary-color
-  ); /* headlines on a white background */
-  --headline-color-on-color: white; /* headlines on a colored background */
-  --paragraph-color-on-white: var(
-    --primary-color
-  ); /* paragraph text on a white background */
-  --paragraph-color-on-color: white; /* paragraph text on a colored background */
+  --accent1-color: white;
+  --accent2-color: #e94444;
+  --accent2-alt: #e77474;
+  --heading-font: "Geo", sans-serif;
+  --paragraph-font: "Inter", sans-serif;
+  --headline-color-on-white: var(--primary-color);
+  --headline-color-on-color: white;
+  --paragraph-color-on-white: var(--primary-color);
+  --paragraph-color-on-color: white;
   --paragraph-background-color: var(--primary-color);
-  --nav-link-color: var(--primary-color);
-  --nav-background-color: var(--secondary-color);
+  --nav-link-color: var(--accent1-color);
+  --nav-background-color: var(--accent2-alt);
   --nav-hover-link-color: white;
-  --nav-hover-background-color: var(--primary-color);
+  --nav-hover-background-color: var(--accent2-color);
 }
 
 /*  Look around below...but DON'T CHANGE ANYTHING! */

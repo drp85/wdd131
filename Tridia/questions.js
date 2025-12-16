@@ -1,5 +1,6 @@
+
 //this list of trivia questions could be replaced with different types of files, api, or an input from the user
-const triviaQuestions = [
+export const triviaQuestions = [
     {
         question: "What is the capital of France?",
         options: ["Berlin", "Madrid", "Paris", "Rome"],
@@ -51,3 +52,4 @@ const triviaQuestions = [
         answer: "Indian"
     }
 ];
+

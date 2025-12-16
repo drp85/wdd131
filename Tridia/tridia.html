@@ -8,14 +8,13 @@
     <link rel="stylesheet" href="style.css">
     <meta name="description" content="WDD131 Final Project">
     <meta name="author" content="Dallin Pratt">
-    <link rel="icon" type="image/png" href="favicon.ico">
-    <script src="questions.js" defer></script>
-    <script src="scripts.js" defer></script>
+    <link rel="icon" type="image/png" href="images/favicon.ico">
+    <script src="scripts.js" type="module" defer></script>
 </head>
 
 <body>
     <header>
-        <a href="index.html"><img src="t_logo.png" alt="Logo"></a>
+        <a href="index.html"><img src="images/t_logo.png" alt="Logo"></a>
     </header>
     <main>
         <div id="trivia-container">
@@ -29,10 +28,12 @@
         </div>
         <div id="results-container" style="display: none;">
             <p>Score: <span id="score-display">0/0</span></p>
+            <p>Try again for a better score, or come back "tomorrow" for more Tridia!</p>
         </div>
         <div id="restart-container">
             <a href="index.html" class="pale-red-btn small">Restart</a>
         </div>
+        <img src="images/lolaitridia.jpg" width="10%" alt="Knowledge related cartoon image">
     </main>
     <footer>
         &copy; 2025 Tridia by Dallin Pratt - WDD131

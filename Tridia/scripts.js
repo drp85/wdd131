@@ -1,21 +1,16 @@
+import { triviaQuestions } from './questions.js';
+import { randomizeOrder } from './random-order.js';
+
 //const triviaQuestions array is in questions.js to keep the questions separate from the scripts
 let currentQuestionIndex = 0;
 let score = 0;
 const totalQuestions = triviaQuestions.length;
-
 
 function startTrivia() {
     randomizeOrder(triviaQuestions);
     displayQuestion();
     document.getElementById('next-btn').addEventListener('click', submitAnswer);
     document.getElementById('end-btn').addEventListener('click', () => endScreen(true));
-}
-
-function randomizeOrder(array) {
-    for (let i = array.length - 1; i > 0; i--) {
-        const j = Math.floor(Math.random() * (i + 1));
-        [array[i], array[j]] = [array[j], array[i]];
-    }
 }
 
 function displayQuestion() {
